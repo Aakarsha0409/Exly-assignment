@@ -3,6 +3,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import photo from '../assets/photo.png';
+import { useState, useEffect } from 'react';
 import './Carousel.css';
 
 const Testimonial = ({ text, name }) => {
@@ -49,10 +50,25 @@ name: "Chelpuru Madhu",
 
 ];
 
+const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+
 const settings = {
     dots: true,
     infinite: true,
-    slidesToShow: 2,
+    slidesToShow: isMobile ? 1 : 2,
     slidesToScroll: 1,
     spaceBetweenSlides: 5,
     centerMode: true,
