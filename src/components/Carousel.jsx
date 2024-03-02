@@ -8,7 +8,7 @@ import './Carousel.css';
 
 const Testimonial = ({ text, name }) => {
 return (
-<div className="mx-auto bg-gray-100 w-[456px] lg:w-[586px] p-6 rounded-xl shadow-md">
+<div className="mx-auto bg-gray-100 w-[90%] lg:w-[586px] p-6 rounded-xl shadow-md">
     <img src={photo} alt='img' className='mb-2'/>
     <p className="text-[18px] font-0 font-[400] text-gray-700 my-5">{text}</p>
     <div className="mt-4 mr-4 flex items-center">
